@@ -862,3 +862,16 @@ FROM pokemon
 
 /*Which pokemon have type 2 poison and hp higher than 70?*/
 SELECT * FROM pokemon WHERE type_2 = 'Poison' AND hp > 70;
+
+/* Find the first 20 legendary pokemon, ordered alphabetically*/
+SELECT name FROM pokemon
+  WHERE legendary ILIKE 'true' /*query to find legendary pokemon*/
+  ORDER BY name ASC /*ordered alphabetically*/
+  LIMIT 20; /*only shows the first 20*/
+
+/*What is Lugia's attack and defense stats*/
+SELECT name,attack,defense FROM pokemon WHERE name ILIKE 'lugia';
+
+/* How many pokemon's start with the letter K*/
+SELECT COUNT(*) FROM pokemon
+WHERE name ILIKE 'k%';
