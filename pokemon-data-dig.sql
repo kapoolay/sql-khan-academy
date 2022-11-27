@@ -882,6 +882,6 @@ SELECT COUNT(*),
     WHEN speed > 100 THEN 'fast'
     WHEN speed > 50 THEN 'medium speed'
     ELSE 'slow'
-    END AS spd
+  END AS spd
 FROM pokemon
 GROUP BY spd;
