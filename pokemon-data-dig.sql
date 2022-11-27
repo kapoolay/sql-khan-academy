@@ -875,3 +875,13 @@ SELECT name,attack,defense FROM pokemon WHERE name ILIKE 'lugia';
 /* How many pokemon's start with the letter K*/
 SELECT COUNT(*) FROM pokemon
 WHERE name ILIKE 'k%';
+
+/* Group all pokemon into 3 speed categories, and get total for each category*/
+SELECT COUNT(*),
+  CASE
+    WHEN speed > 100 THEN 'fast'
+    WHEN speed > 50 THEN 'medium speed'
+    ELSE 'slow'
+    END AS spd
+FROM pokemon
+GROUP BY spd;
