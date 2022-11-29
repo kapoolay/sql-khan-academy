@@ -1365,3 +1365,18 @@ INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft
 INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft_Year,Seasons_in_league,Season,Season_short,Predraft_Team,Real_value,Height_CM,Weight_KG,Last_Season) VALUES ('Marques Johnson','Milwaukee Bucks',NULL,'Nov 4, 1979','GF','6''7',218,24,1977,2,'1979-1980',1980,'UCLA',1.0,201,98,0);
 INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft_Year,Seasons_in_league,Season,Season_short,Predraft_Team,Real_value,Height_CM,Weight_KG,Last_Season) VALUES ('Micheal Ray Richardson','New York Knicks',NULL,'Oct 28, 1979','PG','6''5',189,24,1978,1,'1979-1980',1980,'Montana',1.0,196,85,0);
 INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft_Year,Seasons_in_league,Season,Season_short,Predraft_Team,Real_value,Height_CM,Weight_KG,Last_Season) VALUES ('Julius Erving','Philadelphia Sixers',NULL,'Oct 21, 1979','SF','6''6',200,30,1972,7,'1979-1980',1980,'Massachusetts',1.0,198,90,0);
+
+
+/*Queries*/
+
+/*How many players are over 200cm?*/
+SELECT COUNT(*) FROM players
+  WHERE Height_CM > 200;
+
+/*How many players are over 200cm and weight more than 250lbs?*/
+SELECT COUNT(*) FROM players
+WHERE Height_CM > 200 AND weight > 250;
+
+/*How many players are over 200cm and weight between 225lbs and 250lbs?*/
+SELECT COUNT(*) FROM players
+  WHERE Height_CM > 200 AND weight BETWEEN 225 AND 250;
