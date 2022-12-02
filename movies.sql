@@ -90,3 +90,8 @@ INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,
 INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,OverseasPct,Year) VALUES (77,'The Sixth Sense','BV',672.80,293.50,0.44,379.30,0.56,1999);
 INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,OverseasPct,Year) VALUES (78,'Interstellar','Par.',672.70,188.00,0.28,484.70,0.72,2014);
 INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,OverseasPct,Year) VALUES (79,'Man of Steel','WB',668.00,291.00,0.44,377.00,0.56,2013);
+
+
+/* Select the first 10 movies*/
+SELECT * FROM topmovies
+LIMIT 10;
