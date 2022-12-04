@@ -816,17 +816,16 @@ INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_
 INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary) VALUES (721,'Volcanion','Fire','Water',600,80,110,120,130,90,70,6,'True');
 
 
-    /*What are average, max, and min values in the data?
+    /*What are average, max, and min values in the data?*/
 SELECT ROUND(AVG(Attack)) AS avg_atk FROM pokemon;
 
 SELECT MAX(Sp_Atk) AS max_sp_atk FROM pokemon;
 
 SELECT MIN(Speed) AS min_spd FROM pokemon;
-*/
 
 
     /*What about those numbers per category in the data (using HAVING)?*/
-/*
+
 SELECT Generation,ROUND(AVG(Attack)) AS avg_atk FROM pokemon
     GROUP BY Generation
     HAVING avg_atk > 80;
@@ -837,7 +836,7 @@ SELECT Generation,MAX(Sp_Atk) AS max_sp_atk FROM pokemon
 
 SELECT Generation,MIN(Speed) AS min_spd FROM pokemon
     GROUP BY Generation
-    HAVING min_spd >= 10;*/
+    HAVING min_spd >= 10;
 
 
 /* What is the average difference between attack and special attack?*/
@@ -855,33 +854,18 @@ SELECT COUNT(*) AS total,
         WHEN HP > 100 THEN "Strong"
         WHEN HP > 50 THEN "Medium"
         ELSE "Weak"
-    END AS strength
+    END AS strength_categ
 FROM pokemon
-    GROUP BY strength
+    GROUP BY strength_categ
     ORDER BY total DESC;
 
 /*Which pokemon have type 2 poison and hp higher than 70?*/
 SELECT * FROM pokemon WHERE type_2 = 'Poison' AND hp > 70;
 
-/* Find the first 20 legendary pokemon, ordered alphabetically*/
+/* Select pokemon names that have 'saur' or 'chu' in their names*/
 SELECT name FROM pokemon
-  WHERE legendary ILIKE 'true' /*query to find legendary pokemon*/
-  ORDER BY name ASC /*ordered alphabetically*/
-  LIMIT 20; /*only shows the first 20*/
+WHERE name ILIKE '%saur%' OR name ILIKE '%chu%';
 
-/*What is Lugia's attack and defense stats*/
-SELECT name,attack,defense FROM pokemon WHERE name ILIKE 'lugia';
-
-/* How many pokemon's start with the letter K*/
-SELECT COUNT(*) FROM pokemon
-WHERE name ILIKE 'k%';
-
-/* Group all pokemon into 3 speed categories, and get total for each category*/
-SELECT COUNT(*),
-  CASE
-    WHEN speed > 100 THEN 'fast'
-    WHEN speed > 50 THEN 'medium speed'
-    ELSE 'slow'
-  END AS spd
-FROM pokemon
-GROUP BY spd;
+/*What is the total attack of all pokemons with 'saur' in their names*/
+SELECT SUM(attack) AS total_attack FROM pokemon
+WHERE name ILIKE '%saur%';
